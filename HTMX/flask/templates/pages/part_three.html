@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %}
+<main class="p-24 gap-8 grid place-items-center flex-1 max-w-4xl w-full">
+  <section
+    class="border-2 border-slate-700 border-dashed rounded-lg aspect-square flex flex-col items-center overflow-hidden w-full"
+  >
+    <form
+      class="flex items-center p-2 gap-2 w-full"
+      hx-post="/message"
+      hx-target="ul"
+      hx-swap="afterbegin"
+    >
+      <input
+        class="p-2 flex-1 border-slate-200 border-2 rounded"
+        type="text"
+        name="message"
+        placeholder="Escribe un mensaje"
+        autocomplete="off"
+      />
+      <button
+        class="bg-blue-400 px-4 py-2 rounded font-bold text-white tracking-wide active:bg-blue-500 hover:bg-blue-400/80"
+        type="submit"
+      >
+        ENVIAR
+      </button>
+    </form>
+    <ul class="w-full px-2 flex-1 overflow-y-scroll"></ul>
+  </section>
+</main>
+{% endblock %}

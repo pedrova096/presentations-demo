@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+<main class="p-24 gap-8 grid place-items-center flex-1 max-w-4xl w-full">
+  <section
+    class="border-2 border-slate-700 border-dashed rounded-lg aspect-square flex items-center justify-center overflow-hidden w-full"
+  >
+    <button
+      class="bg-blue-400 px-4 py-2 rounded font-bold text-white tracking-wide text-lg active:bg-blue-500 hover:bg-blue-400/80"
+      hx-get="/image"
+      hx-trigger="click"
+      hx-swap="outerHTML"
+    >
+      MUÉSTRAME
+    </button>
+  </section>
+</main>
+{% endblock %}
