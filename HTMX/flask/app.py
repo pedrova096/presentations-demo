@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, Blueprint
 from flask_sqlalchemy import SQLAlchemy
-from routers import actions
+from routers import basics
 
 db = SQLAlchemy()
 main = Blueprint("main", __name__)
@@ -47,7 +47,7 @@ def create_app():
     app.config["TEMPLATES_AUTO_RELOAD"] = True
     db.init_app(app)
     app.register_blueprint(main)
-    app.register_blueprint(actions.bp)
+    app.register_blueprint(basics.bp)
 
     return app
 

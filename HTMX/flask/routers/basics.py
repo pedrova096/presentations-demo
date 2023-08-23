@@ -3,7 +3,7 @@ from datetime import datetime
 from time import sleep
 import locale
 
-bp = Blueprint("actions", __name__)
+bp = Blueprint("basics", __name__)
 
 
 @bp.route("/image")
@@ -29,5 +29,5 @@ def message():
 @bp.route("/message/slow", methods=["POST"])
 def message_slow():
     message = request.form.get("message")
-    sleep(1.5)
+    sleep(1.0)
     return render_template("/partials/sections/post_message.html", message=message)
