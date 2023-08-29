@@ -9,6 +9,7 @@ flask-wtf = "*"
 flask-sqlalchemy = "*"
 pytailwindcss = "*"
 bcrypt = "*"
+python-jose = "*"
 
 [dev-packages]
 

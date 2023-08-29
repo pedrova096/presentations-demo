@@ -1,6 +1,6 @@
 {% extends 'advance_base.html' %} {% block content %}
 
-<main class="w-full h-full flex flex-col -gap-2">
+<main hx-ext="response-targets" class="w-full h-full flex flex-col -gap-2">
   <header
     class="bg-gradient-to-l from-rose-500 to-yellow-500 text-white py-8 pl-8 flex justify-between overflow-hidden"
   >
@@ -20,6 +20,7 @@
   <form
     class="relative flex flex-col bg-white w-full flex-1 p-8 gap-4 text-stone-800 rounded-t-3xl -mt-12"
     hx-post="/sign-up"
+    hx-target-4*="#error"
   >
     <h3 class="text-lg font-bold">Regístrate!</h3>
     <div class="col-gap-1">
@@ -75,7 +76,9 @@
     >
       Entrar
     </button>
+    <div id="error"></div>
   </form>
 </main>
 
+<script></script>
 {% endblock %}
