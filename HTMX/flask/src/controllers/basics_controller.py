@@ -1,17 +1,14 @@
-from flask import Blueprint, request, render_template
+from flask import request, render_template
+from app import app
 from datetime import datetime
 from time import sleep
 import locale
 
-bp = Blueprint("basics", __name__)
-
-
-@bp.route("/image")
+@app.route("/image")
 def image():
     return render_template("/partials/sections/swap.html")
 
-
-@bp.route("/clock-time")
+@app.route("/clock-time")
 def clock_time():
     time = datetime.now()
     locale.setlocale(locale.LC_ALL, "es_ES")
@@ -20,13 +17,13 @@ def clock_time():
     return render_template("/partials/sections/swap_next.html", hour=time.hour, minute=time.minute, day=time.day, month=month, week_day=week_day)
 
 
-@bp.route("/message", methods=["POST"])
+@app.route("/message", methods=["POST"])
 def message():
     message = request.form.get("message")
     return render_template("/partials/sections/post_message.html", message=message)
 
 
-@bp.route("/message/slow", methods=["POST"])
+@app.route("/message/slow", methods=["POST"])
 def message_slow():
     message = request.form.get("message")
     sleep(1.0)
