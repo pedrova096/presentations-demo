@@ -17,11 +17,14 @@ def post():
 
         atoken = auth_service.create_access_token(user.id)
         
-        response = make_response(redirect(url_for('landing')))
+        feed_url = url_for('kuaatata_feed')
+        response = make_response()
         response.set_cookie('jwt', atoken)
+        response.headers['HX-Redirect'] = feed_url
 
         return response, 200
     except exc.IntegrityError as e:
         return render_template('partials/kauaatata/single_error.html', error='El email ya existe'), 400
     except Exception as e:
+        print(e)
         return redirect(url_for('error')), 500

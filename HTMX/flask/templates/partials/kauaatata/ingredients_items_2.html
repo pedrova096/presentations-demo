@@ -1,0 +1,12 @@
+<li
+  class="rounded-full bg-rose-100 py-1 px-2 font-semibold text-sm flex gap-1"
+  hx-vals='{"foo1": "bar1"}'
+>
+  {% if emoji %}
+  <span>{{ emoji }}</span>
+  {% endif %}
+  <span> {{ name }} </span>
+  {% if amount %}
+  <span>x{{ amount }}</span>
+  {% endif %}
+</li>

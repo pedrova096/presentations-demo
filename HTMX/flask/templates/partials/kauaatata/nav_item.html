@@ -1,0 +1,14 @@
+{% macro nav_item(url, label, icon, active_icon) -%} {% set is_active = url ==
+request.path %}
+<a
+  href="{{ url }}"
+  class="flex-1 rounded-lg p-1 flex flex-col items-center {{ 'bg-rose-50 text-rose-500' if is_active else '' }}"
+>
+  <iconify-icon
+    icon="{{ active_icon if is_active else icon }}"
+    height="1.5rem"
+    id="{{ url }}"
+  ></iconify-icon>
+  <span class="text-[8px]">{{ label }}</span>
+</a>
+{%- endmacro %}

@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request, redirect, url_for
 from app import app as views
 
 def get_nav_page(index):
@@ -35,4 +35,24 @@ def part_four():
 
 @views.route("/k")
 def kuaatata_page():
-    return render_template("pages/kuaatata/index.html")
+    if 'jwt' in request.cookies:
+        return redirect(url_for('kuaatata_feed'))
+    
+    return render_template("pages/kuaatata/sign_up.html")
+
+@views.route("/k/feed")
+def kuaatata_feed():
+    # return render_template("pages/kuaatata/feed.html")
+    return ""
+
+@views.route("/k/add")
+def kuaatata_add():
+    return render_template("pages/kuaatata/recipe_form.html")
+
+@views.route("/k/profile")
+def kuaatata_profile():
+    return ""
+
+@views.route("/k/recipe/<int:recipe_id>")
+def kuaatata_recipe(recipe_id):
+    return ""

@@ -1,0 +1,95 @@
+{% extends 'advance_base.html' %} {% block title %}Kuaatata | Comparte!{%
+endblock %} {% block content %}
+<main class="w-full flex-1">
+  <form
+    class="relative flex flex-col w-full p-8 gap-4 text-stone-800 h-full"
+    hx-post="/recipes"
+    hx-target-4*="#error"
+  >
+    <h2 class="text-lg font-bold">Comparte!</h2>
+    <div class="col-gap-1">
+      <label class="label" for="name">Titulo</label>
+      <input
+        class="input"
+        type="text"
+        name="title"
+        placeholder="Escribe el titulo de tu receta"
+        autocomplete="off"
+        min="2"
+        required
+      />
+    </div>
+
+    <hr />
+
+    <h3 class="text-sm font-bold text-center">Ingredientes</h3>
+
+    <ul
+      id="ingredients-list"
+      class="w-full rounded-3xl bg-white p-2 flex gap-2 flex-wrap"
+    ></ul>
+
+    <div class="col-gap-1 flex-row">
+      <input
+        class="input flex-1"
+        type="text"
+        id="ingredient"
+        name="ingredient"
+        placeholder="Tomate, Cebolla"
+        autocomplete="off"
+        hx-trigger="keyup changed delay:300ms"
+        hx-get="/ingredients/search"
+        hx-target="next #ingredients-autocomplete"
+      />
+
+      <input
+        class="input w-10 px-2"
+        id="ingredient-amount"
+        type="number"
+        name="amount"
+        placeholder="0"
+        autocomplete="off"
+      />
+
+      <div
+        class="rounded-lg bg-amber-500 text-white shadow-md shadow-amber-500/50 w-10 flex"
+        hx-post="/ingredients"
+        hx-target="#ingredients-list"
+        hx-swap="afterbegin"
+        hx-on::after-request="clearIngredientInputs()"
+      >
+        <iconify-icon
+          icon="fluent:add-16-filled"
+          height="1.5rem"
+          class="m-auto"
+        ></iconify-icon>
+      </div>
+    </div>
+
+    <div id="ingredients-autocomplete"></div>
+
+    <hr />
+
+    <h3 class="text-sm font-bold text-center">Descripción</h3>
+
+    <div class="col-gap-1">
+      <textarea
+        class="input"
+        name="description"
+        placeholder="Describe tu receta"
+      ></textarea>
+    </div>
+
+    <button
+      type="submit"
+      class="mt-auto w-full py-3 rounded-lg bg-amber-500 text-white tracking-wide font-bold shadow-md shadow-amber-500/50"
+    >
+      Compartir
+    </button>
+
+    <span id="error"></span>
+  </form>
+</main>
+{% endblock %} {% block scripts %}
+<script src="/static/js/recipe_form.js"></script>
+{% endblock %}

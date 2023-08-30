@@ -13,16 +13,16 @@ class AuthService():
         encoded_jwt = jwt.encode(to_encode, self.SECRET_KEY, algorithm=self.ALGORITHM)
         return encoded_jwt
 
-    # def decode_token(self, token):
-    #     try:
-    #         payload = jwt.decode(token, self.SECRET_KEY, algorithms=self.ALGORITHM)
-    #         return payload['sub']
-    #     except jwt.ExpiredSignatureError:
-    #         raise RequiresLoginException()
-    #     except jwt.JWTError as e:
-    #         raise RequiresLoginException()
-    #     except Exception as e:
-    #         raise RequiresLoginException()
+    def decode_token(self, token):
+        try:
+            payload = jwt.decode(token, self.SECRET_KEY, algorithms=self.ALGORITHM)
+            return payload['sub']
+        except jwt.ExpiredSignatureError:
+            raise RequiresLoginException()
+        except jwt.JWTError as e:
+            raise RequiresLoginException()
+        except Exception as e:
+            raise RequiresLoginException()
             
     
     # def auth_wrapper(self, auth: HTTPAuthorizationCredentials = Security(security)):

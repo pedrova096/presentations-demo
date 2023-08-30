@@ -1,0 +1,322 @@
+[
+  {
+    "id": "cow",
+    "emoji": "🐄",
+    "name": "vaca"
+  },
+  {
+    "id": "pig",
+    "emoji": "🐖",
+    "name": "cerdo"
+  },
+  {
+    "id": "turkey",
+    "emoji": "🦃",
+    "name": "pavo"
+  },
+  {
+    "id": "rooster",
+    "emoji": "🐓",
+    "name": "gallina"
+  },
+  {
+    "id": "baby-chick",
+    "emoji": "🐤",
+    "name": "pollito"
+  },
+  {
+    "id": "duck",
+    "emoji": "🦆",
+    "name": "pato"
+  },
+  {
+    "id": "sunflower",
+    "emoji": "🌻",
+    "name": "girasol"
+  },
+  {
+    "id": "blossom",
+    "emoji": "🌼",
+    "name": "flor"
+  },
+  {
+    "id": "seedling",
+    "emoji": "🌱",
+    "name": "plantín"
+  },
+  {
+    "id": "sheaf-of-rice",
+    "emoji": "🌾",
+    "name": "arroz"
+  },
+  {
+    "id": "herb",
+    "emoji": "🌿",
+    "name": "hierba"
+  },
+  {
+    "id": "mushroom",
+    "emoji": "🍄",
+    "name": "seta"
+  },
+  {
+    "id": "grapes",
+    "emoji": "🍇",
+    "name": "uvas"
+  },
+  {
+    "id": "melon",
+    "emoji": "🍈",
+    "name": "melón"
+  },
+  {
+    "id": "watermelon",
+    "emoji": "🍉",
+    "name": "sandía"
+  },
+  {
+    "id": "tangerine",
+    "emoji": "🍊",
+    "name": "mandarina"
+  },
+  {
+    "id": "lemon",
+    "emoji": "🍋",
+    "name": "limón"
+  },
+  {
+    "id": "banana",
+    "emoji": "🍌",
+    "name": "plátano"
+  },
+  {
+    "id": "pineapple",
+    "emoji": "🍍",
+    "name": "piña"
+  },
+  {
+    "id": "mango",
+    "emoji": "🥭",
+    "name": "mango"
+  },
+  {
+    "id": "red-apple",
+    "emoji": "🍎",
+    "name": "manzana roja"
+  },
+  {
+    "id": "green-apple",
+    "emoji": "🍏",
+    "name": "manzana verde"
+  },
+  {
+    "id": "pear",
+    "emoji": "🍐",
+    "name": "pera"
+  },
+  {
+    "id": "peach",
+    "emoji": "🍑",
+    "name": "durazno"
+  },
+  {
+    "id": "cherries",
+    "emoji": "🍒",
+    "name": "cerezas"
+  },
+  {
+    "id": "strawberry",
+    "emoji": "🍓",
+    "name": "fresa"
+  },
+  {
+    "id": "blueberries",
+    "emoji": "🫐",
+    "name": "arándanos"
+  },
+  {
+    "id": "kiwi-fruit",
+    "emoji": "🥝",
+    "name": "kiwi"
+  },
+  {
+    "id": "tomato",
+    "emoji": "🍅",
+    "name": "tomate"
+  },
+  {
+    "id": "olive",
+    "emoji": "🫒",
+    "name": "aceituna"
+  },
+  {
+    "id": "coconut",
+    "emoji": "🥥",
+    "name": "coco"
+  },
+  {
+    "id": "avocado",
+    "emoji": "🥑",
+    "name": "aguacate"
+  },
+  {
+    "id": "eggplant",
+    "emoji": "🍆",
+    "name": "berenjena"
+  },
+  {
+    "id": "potato",
+    "emoji": "🥔",
+    "name": "papa"
+  },
+  {
+    "id": "carrot",
+    "emoji": "🥕",
+    "name": "zanahoria"
+  },
+  {
+    "id": "ear-of-corn",
+    "emoji": "🌽",
+    "name": "mazorca de maíz"
+  },
+  {
+    "id": "hot-pepper",
+    "emoji": "🌶️",
+    "name": "pimiento picante"
+  },
+  {
+    "id": "bell-pepper",
+    "emoji": "🫑",
+    "name": "pimiento morrón"
+  },
+  {
+    "id": "cucumber",
+    "emoji": "🥒",
+    "name": "pepino"
+  },
+  {
+    "id": "leafy-green",
+    "emoji": "🥬",
+    "name": "verde de hoja"
+  },
+  {
+    "id": "broccoli",
+    "emoji": "🥦",
+    "name": "brócoli"
+  },
+  {
+    "id": "garlic",
+    "emoji": "🧄",
+    "name": "ajo"
+  },
+  {
+    "id": "onion",
+    "emoji": "🧅",
+    "name": "cebolla"
+  },
+  {
+    "id": "peanuts",
+    "emoji": "🥜",
+    "name": "cacahuates"
+  },
+  {
+    "id": "beans",
+    "emoji": "🫘",
+    "name": "frijoles"
+  },
+  {
+    "id": "chestnut",
+    "emoji": "🌰",
+    "name": "castaña"
+  },
+  {
+    "id": "ginger-root",
+    "emoji": "🫚",
+    "name": "raíz de jengibre"
+  },
+  {
+    "id": "pea-pod",
+    "emoji": "🫛",
+    "name": "vaina de guisantes"
+  },
+  {
+    "id": "bread",
+    "emoji": "🍞",
+    "name": "pan"
+  },
+  {
+    "id": "croissant",
+    "emoji": "🥐",
+    "name": "cruasán"
+  },
+  {
+    "id": "baguette-bread",
+    "emoji": "🥖",
+    "name": "pan baguette"
+  },
+  {
+    "id": "flatbread",
+    "emoji": "🫓",
+    "name": "pan plano"
+  },
+  {
+    "id": "cheese-wedge",
+    "emoji": "🧀",
+    "name": "queso"
+  },
+  {
+    "id": "meat-on-bone",
+    "emoji": "🍖",
+    "name": "carne en hueso"
+  },
+  {
+    "id": "poultry-leg",
+    "emoji": "🍗",
+    "name": "pierna de ave"
+  },
+  {
+    "id": "cut-of-meat",
+    "emoji": "🥩",
+    "name": "corte de carne"
+  },
+  {
+    "id": "bacon",
+    "emoji": "🥓",
+    "name": "tocino"
+  },
+  {
+    "id": "egg",
+    "emoji": "🥚",
+    "name": "huevo"
+  },
+  {
+    "id": "cooking",
+    "emoji": "🍳",
+    "name": "cocina"
+  },
+  {
+    "id": "butter",
+    "emoji": "🧈",
+    "name": "mantequilla"
+  },
+  {
+    "id": "salt",
+    "emoji": "🧂",
+    "name": "sal"
+  },
+  {
+    "id": "canned-food",
+    "emoji": "🥫",
+    "name": "comida enlatada"
+  },
+  {
+    "id": "spaghetti",
+    "emoji": "🍝",
+    "name": "espaguetis"
+  },
+  {
+    "id": "glass-of-milk",
+    "emoji": "🥛",
+    "name": "vaso de leche"
+  }
+]
