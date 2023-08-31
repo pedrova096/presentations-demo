@@ -1,5 +1,5 @@
 from functools import wraps
-from flask import request, abort
+from flask import request, abort, make_response
 from src.services.auth_service import AuthService
 
 auth_service = AuthService()
@@ -12,10 +12,12 @@ def jwt_required(func):
             abort(401)
         
         try:
-            payload = auth_service.decode_token(request.cookies['jwt'])
-            user_id = payload['sub']
+            user_id = auth_service.decode_token(request.cookies['jwt'])
         except:
-            abort(401)
+            response = make_response("Unauthorized", 401)
+            response.delete_cookie('jwt')
+            return response
+
         return func(user_id, *args, **kwargs)
     
     return wrapper

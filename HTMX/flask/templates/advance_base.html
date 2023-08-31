@@ -8,7 +8,9 @@
     <!-- if title is not defined in the child template, use the default title -->
     <title>{% block title %}HTMX 💡{% endblock %}</title>
   </head>
-  <body class="bg-slate-100 flex flex-col items-center h-screen">
+  <body
+    class="bg-gradient-to-b from-neutral-100 to-stone-100 flex flex-col items-center h-screen"
+  >
     {% block content %}{% endblock %} {% block scripts %}{% endblock %} {% if
     True %}
     <nav id="nav" class="w-full bg-white shadow-md rounded-t-3xl p-2">
@@ -20,7 +22,7 @@
       >
         {% from "partials/kauaatata/nav_item.html" import nav_item %} {{
         nav_item(url_for("kuaatata_feed"), "Inicio", "fluent:home-32-regular",
-        "fluent:home-32-filled") }} {{ nav_item(url_for("kuaatata_add"),
+        "fluent:home-32-filled") }} {{ nav_item(url_for("kuaatata_share"),
         "Comparte", "fluent:add-32-regular", "fluent:add-32-filled") }} {{
         nav_item(url_for("kuaatata_profile"), "Perfil",
         "fluent:person-32-regular", "fluent:person-32-filled") }}

@@ -1,0 +1,18 @@
+{% if ingredients %}
+  <ul
+    class="bg-neutral-50 -mt-4 rounded-b-lg border border-t-0 border-neutral-400 overflow-hidden active:bg-white"
+  >
+
+  {% for item in ingredients %}
+      <li class="flex gap-2 px-2 py-1 border-b border-neutral-200"
+        data-name="{{ item["name"] }}"
+        hx-on:click="handleIngredientClick(this)"
+      >
+        {% if item["emoji"] %}
+          <span class="emoji">{{ item["emoji"] }}</span>
+        {% endif %}
+        <span> {{ item["name"] }} </span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

@@ -11,6 +11,10 @@ class BaseRepository(object):
     def get(self, entity_id):
         entity = db.session.query(self.model).get(entity_id)
         return entity
+    
+    def get_by(self, **kwargs):
+        entity = db.session.query(self.model).filter_by(**kwargs).first()
+        return entity
 
     def get_all(self):
         entities = db.session.query(self.model).all()
@@ -29,3 +33,6 @@ class BaseRepository(object):
         db.session.add(entity)
         db.session.commit()
         return entity
+    
+    def get_query_with(self, *args):
+        return db.session.query(self.model, *args)

@@ -1,0 +1,11 @@
+{% extends 'advance_base.html' %} {% block title %}Kuaatata | Cocina &
+Disfruta!{% endblock %} {% block content %}
+<main class="flex-1 w-full overflow-y-auto">
+  <ul class="w-full flex flex-col p-8 gap-8">
+    {% for recipe in recipes %} {% include
+    "/partials/kauaatata/recipe_card.html" %} {% endfor %} {% endblock %} {%
+    block scripts %}
+  </ul>
+</main>
+<script src="/static/js/recipe_form.js"></script>
+{% endblock %}

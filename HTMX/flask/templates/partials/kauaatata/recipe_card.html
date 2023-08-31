@@ -1,0 +1,40 @@
+<li
+  id="recipe-{{ recipe.id }}"
+  class="bg-white relative flex flex-col rounded-lg border border-neutral-400 px-4 py-2 gap-2"
+>
+  <header>
+    <span class="font-bold text-xl">{{ recipe.title }}</span>
+    <div class="opacity-70 h-8 mt-1 overflow-hidden">
+      <p class="text-sm leading-4 line-clamp-2">{{ recipe.description }}</p>
+    </div>
+  </header>
+
+  <hr />
+
+  <ul class="w-full rounded-3xl bg-white p-2 flex gap-2 flex-wrap">
+    {% for ingredient in recipe.ingredients %} {% include
+    "/partials/kauaatata/ingredients_items.html" %} {% endfor %}
+  </ul>
+
+  {% set likes = recipe.like_count %} {% if recipe.i_liked %}
+  <button
+    hx-post="{{ url_for('like_recipe', recipe_id=recipe.id) }}"
+    hx-target="#recipe-{{ recipe.id }}"
+    hx-swap="outerHTML"
+    class="rounded-full bg-rose-500 text-white flex px-2 absolute bottom-0 right-3 translate-y-1/2 items-center"
+  >
+    <span>Yo, {{ likes }}</span>
+    <iconify-icon icon="fluent:heart-16-filled"></iconify-icon>
+  </button>
+  {% else %}
+  <button
+    hx-post="{{ url_for('like_recipe', recipe_id=recipe.id) }}"
+    hx-target="#recipe-{{ recipe.id }}"
+    hx-swap="outerHTML"
+    class="rounded-full text-rose-500 border border-rose-500 bg-white flex px-2 absolute bottom-0 right-3 translate-y-1/2 items-center"
+  >
+    <span>{{ likes }}</span>
+    <iconify-icon icon="fluent:heart-16-regular"></iconify-icon>
+  </button>
+  {% endif %}
+</li>
