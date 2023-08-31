@@ -19,6 +19,7 @@
         hx-boost="true"
         hx-target="main"
         hx-select="main"
+        hx-swap="outerHTML"
       >
         {% from "partials/kauaatata/nav_item.html" import nav_item %} {{
         nav_item(url_for("kuaatata_feed"), "Inicio", "fluent:home-32-regular",
@@ -29,7 +30,8 @@
       </div>
     </nav>
     {% endif %}
-    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+    <!-- <script src="https://unpkg.com/htmx.org@1.9.5"></script> -->
+    <script src="https://unpkg.com/htmx.org@1.9.5/dist/htmx.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
     <script src="https://unpkg.com/htmx.org/dist/ext/response-targets.js"></script>
   </body>

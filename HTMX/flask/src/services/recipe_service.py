@@ -3,7 +3,7 @@ import json
 from fuzzywuzzy import fuzz
 from src.repositories.recipe_repository import RecipeRepository
 from .like_service import LikeService, LikeModel
-
+from sqlalchemy import and_
 
 class IngredientsService(object):
     INGREDIENT_EMOJI_JSON = "./constants/ingredients_emoji.json"
@@ -109,12 +109,13 @@ class RecipeService(object):
         return entities, total_count
 
     def get_all_v2(self, user_id, page_number=1, page_size=10, ingredients_limit=3):
-        entities = self.repository.get_query_with(LikeModel.id).outerjoin(
-            LikeModel, LikeModel.recipe_id == self.repository.model.id and LikeModel.user_id == user_id).order_by(
-                self.repository.model.like_count.desc()).paginate(
-                    page=page_number, per_page=page_size, error_out=False)
+        recipes, pagination = self.repository.get_with_like_by_uid(
+            user_id,
+            page_number,
+            page_size
+        )
 
-        entities = [self.map_feed(entity, i_liked=bool(like_id), ingredients_limit=ingredients_limit)
-                    for entity, like_id in entities]
+        recipes = [self.map_feed(entity, i_liked=bool(like_id), ingredients_limit=ingredients_limit)
+                    for entity, like_id in recipes]
 
-        return entities
+        return recipes, pagination

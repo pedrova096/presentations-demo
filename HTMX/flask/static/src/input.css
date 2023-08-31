@@ -19,4 +19,21 @@
     /*@apply border-green-500 bg-green-50/50;*/
     @apply border-green-900 bg-green-300;
   }
+
+  .skeleton {
+    @apply bg-gradient-to-r from-neutral-200 via-neutral-50 to-neutral-200 bg-no-repeat;
+    background-size: 400px;
+    animation: shine 1s infinite linear;
+    max-width: 400px;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: -200px;
+    }
+    40%,
+    100% {
+      background-position: 400px;
+    }
+  }
 }

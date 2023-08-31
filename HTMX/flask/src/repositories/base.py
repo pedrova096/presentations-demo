@@ -35,4 +35,7 @@ class BaseRepository(object):
         return entity
     
     def get_query_with(self, *args):
-        return db.session.query(self.model, *args)
+        try:
+            return db.session.query(self.model, *args)
+        finally:
+            db.session.close()

@@ -47,8 +47,9 @@ def kuaatata_sign_up():
 @views.route("/k/feed")
 @jwt_required
 def kuaatata_feed(uid):
-    recipes,_ = RecipeService().get_all(user_id=uid)
-    return render_template("pages/kuaatata/recipe_feed.html", recipes=recipes)
+    page_number = request.args.get("page_number", 1, type=int)
+    recipes,pagination = recipe_service.get_all_v2(user_id=uid, page_size=5, page_number=page_number)
+    return render_template("pages/kuaatata/recipe_feed.html", recipes=recipes, pagination=pagination)
 
 @views.route("/k/share")
 def kuaatata_share():
