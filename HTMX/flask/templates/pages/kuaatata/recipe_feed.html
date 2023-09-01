@@ -4,6 +4,7 @@ Disfruta!{% endblock %} {% block content %}
   {% include "/partials/kauaatata/header_title.html" %}
   <ul
     id="recipe-feed"
+    hx-boost="true"
     class="w-full flex flex-col p-8 pt-2 gap-8 overflow-y-scroll"
   >
     {% for recipe in recipes %} {% include

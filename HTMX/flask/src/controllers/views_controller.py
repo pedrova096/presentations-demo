@@ -52,13 +52,17 @@ def kuaatata_feed(uid):
     return render_template("pages/kuaatata/recipe_feed.html", recipes=recipes, pagination=pagination)
 
 @views.route("/k/share")
+@jwt_required
 def kuaatata_share():
     return render_template("pages/kuaatata/recipe_form.html")
 
 @views.route("/k/profile")
+@jwt_required
 def kuaatata_profile():
     return ""
 
 @views.route("/k/recipe/<int:recipe_id>")
-def kuaatata_recipe(recipe_id):
-    return recipe_id
+@jwt_required
+def kuaatata_recipe(uid, recipe_id):
+    recipe = recipe_service.get_by_id(recipe_id)
+    return render_template("pages/kuaatata/recipe_detail.html", recipe=recipe)

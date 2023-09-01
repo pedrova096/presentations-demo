@@ -65,11 +65,28 @@ class RecipeService(object):
 
         return self.map_feed(recipe, toggle_like == 1)
 
+    def map_details(self, entity):
+        try:
+            ingredients = json.loads(entity.ingredients)
+            entity.ingredients = [
+                {
+                    "name": ingredient[0],
+                    "amount": ingredient[1],
+                    "emoji": self.ingredients_service.get_emoji(ingredient[0])
+                }
+                for ingredient in ingredients
+            ]
+        except Exception as e:
+            print("Error parsing ingredients", e)
+            entity.ingredients = []
+
+        return entity
+
     def map_feed(self, entity, i_liked=False, ingredients_limit=3):
         try:
             entity.i_liked = i_liked
 
-            ingredients = json.loads(entity.ingredients)
+            ingredients = json.loads(entity.ingredients, encoding="utf-8")
             ingredients = [
                 {
                     "name": ingredient[0],
@@ -119,3 +136,9 @@ class RecipeService(object):
                     for entity, like_id in recipes]
 
         return recipes, pagination
+
+    def get_by_id(self, recipe_id):
+        entity = self.repository.get(recipe_id)
+        entity = self.map_details(entity)
+        print(entity)
+        return entity
