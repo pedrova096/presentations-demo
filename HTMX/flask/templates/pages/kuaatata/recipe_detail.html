@@ -1,6 +1,6 @@
 {% extends 'advance_base.html' %} {% block title %}Kuaatata | Comparte!{%
 endblock %} {% block content %}
-<main class="w-full flex-1 flex flex-col overflow-hidden">
+<main class="w-full flex-1 flex flex-col overflow-hidden relative">
   {% include "/partials/kauaatata/header_title.html" %}
   <div
     class="relative flex flex-col w-full p-8 py-2 gap-4 text-neutral-800 flex-1"
@@ -24,5 +24,18 @@ endblock %} {% block content %}
 
     <p class="text-sm text-justify">{{ recipe.description }}</p>
   </div>
+
+  <button
+    class="w-10 aspect-square absolute bottom-4 right-8 rounded-full bg-rose-500 text-white shadow-lg shadow-rose-500/50 flex active:scale-95 transition-transform duration-300 ease-in-out"
+    hx-ext="ws"
+    ws-connect="/"
+    >
+    <iconify-icon
+      icon="fluent:emoji-sparkle-32-regular"
+      height="1.5rem"
+      class='m-auto'
+      ></iconify-icon>
+  </button>
+
 </main>
 {% endblock %}
