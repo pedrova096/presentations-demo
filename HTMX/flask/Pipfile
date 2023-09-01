@@ -11,6 +11,7 @@ pytailwindcss = "*"
 bcrypt = "*"
 python-jose = "*"
 fuzzywuzzy = "*"
+flask-sock = "*"
 
 [dev-packages]
 

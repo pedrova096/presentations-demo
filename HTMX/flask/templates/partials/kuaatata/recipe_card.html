@@ -5,6 +5,7 @@
   hx-push-url="true"
   hx-target="main"
   hx-select="main"
+  hx-swap="outerHTML"
 >
   <header>
     <span class="font-bold text-xl">{{ recipe.title }}</span>
@@ -17,7 +18,7 @@
 
   <ul class="w-full rounded-3xl bg-white p-2 flex gap-2 flex-wrap">
     {% for ingredient in recipe.ingredients %} {% include
-    "/partials/kauaatata/ingredients_items.html" %} {% endfor %}
+    "/partials/kuaatata/ingredients_items.html" %} {% endfor %}
   </ul>
 
   {% set likes = recipe.like_count %} {% if recipe.i_liked %}

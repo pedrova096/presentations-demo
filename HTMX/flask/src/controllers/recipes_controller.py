@@ -13,7 +13,7 @@ def search_ingredients():
 
     results = ingredients_service.search(ingredient_query_param)
 
-    return render_template("partials/kauaatata/ingredients_autocomplete.html", ingredients=results)
+    return render_template("partials/kuaatata/ingredients_autocomplete.html", ingredients=results)
 
 
 @app.route("/ingredients", methods=["POST"])
@@ -22,7 +22,7 @@ def post_ingredient():
 
     if "ingredient" in data and "amount" in data and data["ingredient"] and data["amount"]:
         ingredient = ingredients_service.get_by_name(data["ingredient"])
-        return render_template("partials/kauaatata/ingredients_items.html", ingredient={
+        return render_template("partials/kuaatata/ingredients_items.html", ingredient={
             "name": data["ingredient"],
             "amount": data["amount"],
             "emoji": ingredient["emoji"] if ingredient else ""
@@ -48,4 +48,4 @@ def post_recipe(uid):
 @jwt_required
 def like_recipe(uid, recipe_id):
     recipe_updated = recipe_service.like(recipe_id, uid)
-    return render_template("partials/kauaatata/recipe_card.html", recipe=recipe_updated)
+    return render_template("partials/kuaatata/recipe_card.html", recipe=recipe_updated)

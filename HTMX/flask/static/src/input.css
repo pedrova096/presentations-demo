@@ -27,6 +27,11 @@
     max-width: 400px;
   }
 
+  .fly-up-animation {
+    --translate-x: 100%;
+    animation: fly-up 3s ease-in-out forwards, wave 1s ease-in-out infinite;
+  }
+
   @keyframes shine {
     0% {
       background-position: -200px;
@@ -34,6 +39,32 @@
     40%,
     100% {
       background-position: 400px;
+    }
+  }
+
+  @keyframes fly-up {
+    0% {
+      bottom: 0;
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      bottom: 100%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes wave {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(var(--translate-x));
+    }
+    100% {
+      transform: translateX(0);
     }
   }
 }

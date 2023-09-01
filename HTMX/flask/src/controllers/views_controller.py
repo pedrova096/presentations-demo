@@ -53,12 +53,12 @@ def kuaatata_feed(uid):
 
 @views.route("/k/share")
 @jwt_required
-def kuaatata_share():
+def kuaatata_share(_uid):
     return render_template("pages/kuaatata/recipe_form.html")
 
 @views.route("/k/profile")
 @jwt_required
-def kuaatata_profile():
+def kuaatata_profile(_uid):
     return ""
 
 @views.route("/k/recipe/<int:recipe_id>")

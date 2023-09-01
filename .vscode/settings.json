@@ -2,5 +2,6 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8"
   },
-  "html.format.templating": true
+  "html.format.templating": true,
+  "cSpell.words": ["kuaatata"]
 }

@@ -24,7 +24,7 @@ def post():
 
         return response, 200
     except exc.IntegrityError as e:
-        return render_template('partials/kauaatata/single_error.html', error='El email ya existe'), 400
+        return render_template('partials/kuaatata/single_error.html', error='El email ya existe'), 400
     except Exception as e:
         print(e)
         return redirect(url_for('error')), 500

@@ -86,7 +86,7 @@ class RecipeService(object):
         try:
             entity.i_liked = i_liked
 
-            ingredients = json.loads(entity.ingredients, encoding="utf-8")
+            ingredients = json.loads(entity.ingredients)
             ingredients = [
                 {
                     "name": ingredient[0],
@@ -98,7 +98,7 @@ class RecipeService(object):
 
             entity.ingredients = [{"emoji": ingredient["emoji"], "amount": ingredient["amount"], "name": ""}
                                   for ingredient in ingredients if ingredient["emoji"]][:ingredients_limit]
-
+            
             if len(entity.ingredients) == 0:
                 entity.ingredients = [ingredients[0]]
 
