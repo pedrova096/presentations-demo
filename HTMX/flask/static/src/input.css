@@ -28,7 +28,7 @@
   }
 
   .fly-up-animation {
-    --translate-x: 100%;
+    --translate-x: -100%;
     animation: fly-up 3s ease-in-out forwards, wave 1s ease-in-out infinite;
   }
 
@@ -44,7 +44,7 @@
 
   @keyframes fly-up {
     0% {
-      bottom: 0;
+      @apply bottom-24;
       opacity: 1;
     }
     50% {

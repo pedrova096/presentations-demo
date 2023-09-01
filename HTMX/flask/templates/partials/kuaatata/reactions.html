@@ -1,11 +1,21 @@
 <div id="reactions" hx-swap-oob="beforeend">
   <div
-    class="w-10 aspect-square fixed bottom-4 left-8 rounded-full bg-gradient-to-l from-rose-500/20 to-yellow-500/20 backdrop-blur-md flex fly-up-animation"
+    hx-on:animationend="this.remove()"
+    class="fixed bottom-4 right-8 fly-up-animation"
   >
-    <iconify-icon
-      icon="fluent-emoji:cook"
-      height="1.5rem"
-      class="m-auto"
-    ></iconify-icon>
+    <div
+      class="relative w-10 aspect-square rounded-full bg-gradient-to-l from-rose-500/20 to-yellow-500/20 backdrop-blur-md flex"
+    >
+      <span
+        class="absolute -top-1 left-0 block text-[8px] w-3 aspect-square rounded-full {{ color }} font-semibold text-neutral-100 text-center"
+      >
+        {{ initial }}
+      </span>
+      <iconify-icon
+        icon="{{ emoji }}"
+        height="1.5rem"
+        class="m-auto"
+      ></iconify-icon>
+    </div>
   </div>
 </div>
