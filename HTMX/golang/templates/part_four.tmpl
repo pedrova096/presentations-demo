@@ -1,0 +1,32 @@
+{{ template "basic_top" . }}
+<main class="p-24 gap-8 grid place-items-center flex-1 max-w-4xl w-full">
+  <section
+    class="border-2 border-slate-700 border-dashed rounded-lg aspect-square flex flex-col items-center overflow-hidden w-full"
+  >
+    <form class="flex items-center p-2 gap-2 w-full">
+      <input
+        class="p-2 flex-1 border-slate-200 border-2 rounded"
+        required
+        type="text"
+        name="message"
+        placeholder="Escribe un mensaje"
+        autocomplete="off"
+        hx-trigger="keyup changed delay:500ms"
+        hx-post="/message/slow"
+        hx-target="ul"
+        hx-swap="afterbegin"
+        hx-indicator="#loader"
+        hx-validate="true"
+      />
+      <div class="w-10 p-3 aspect-square rounded bg-slate-200">
+        <div
+          id="loader"
+          class="htmx-indicator opacity-0 w-4 aspect-square border-2 border-blue-400 rounded-3xl border-t-transparent animate-spin"
+        ></div>
+      </div>
+    </form>
+    <ul class="w-full px-2 flex-1 overflow-y-scroll"></ul>
+  </section>
+</main>
+{{ template "basic_bottom" . }}
+

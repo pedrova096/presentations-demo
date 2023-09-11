@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .col-gap-1 {
+    @apply flex flex-col gap-1;
+  }
+
+  .label {
+    @apply text-xs font-semibold;
+  }
+
+  .input {
+    @apply px-4 py-2 border border-stone-500 rounded-lg font-medium;
+  }
+
+  .input-valid:valid {
+    /*@apply border-green-500 bg-green-50/50;*/
+    @apply border-green-900 bg-green-300;
+  }
+
+  .skeleton {
+    @apply bg-gradient-to-r from-neutral-200 via-neutral-50 to-neutral-200 bg-no-repeat;
+    background-size: 400px;
+    animation: shine 1s infinite linear;
+    max-width: 400px;
+  }
+
+  .fly-up-animation {
+    --translate-x: -100%;
+    animation: fly-up 3s ease-in-out forwards, wave 1s ease-in-out infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: -200px;
+    }
+    40%,
+    100% {
+      background-position: 400px;
+    }
+  }
+
+  @keyframes fly-up {
+    0% {
+      @apply bottom-24;
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      bottom: 100%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes wave {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(var(--translate-x));
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}

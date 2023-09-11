@@ -1,0 +1,37 @@
+{{ template "basic_top" . }}
+<main class="p-14 gap-8 grid place-items-center flex-1 max-w-4xl w-full">
+  <section
+    class="border-2 border-slate-700 border-dashed rounded-lg aspect-square flex flex-col h-full"
+  >
+    <button
+      class="bg-yellow-300 px-4 py-2 rounded font-bold text-slate-800 tracking-wide text-lg active:bg-yellow-400 hover:bg-yellow-300/80 mb-2"
+      hx-get="/clock-time"
+      hx-trigger="click"
+      hx-target="#clock-1"
+      hx-swap="outerHTML"
+    >
+      ¿Que hora es 🕒?
+    </button>
+    <div id="clock-1" class="text-center">
+      <span>Aca va el reloj</span>
+    </div>
+  </section>
+
+  <section
+    class="border-2 border-slate-700 border-dashed rounded-lg aspect-square flex flex-col h-full"
+  >
+    <button
+      class="bg-yellow-300 px-4 py-2 rounded font-bold text-slate-800 tracking-wide text-lg active:bg-yellow-400 hover:bg-yellow-300/80 mb-2"
+      hx-get="/clock-time"
+      hx-trigger="click"
+      hx-target="#clock-2"
+      hx-swap="innerHTML"
+    >
+      ¿Que hora es 🕒?
+    </button>
+    <div id="clock-2" class="text-center">
+      <span>Aca va el reloj</span>
+    </div>
+  </section>
+</main>
+{{ template "basic_bottom" . }}
