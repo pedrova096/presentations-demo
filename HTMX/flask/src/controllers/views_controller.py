@@ -15,7 +15,7 @@ def index():
 
 
 @views.route("/part-one")
-def page_one():
+def part_one():
     prev_page, next_page = get_nav_page(0)
     return render_template("pages/part_one.html", next=next_page, prev=prev_page)
 
