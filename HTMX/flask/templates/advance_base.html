@@ -6,21 +6,20 @@
     <link rel="stylesheet" href="/static/css/main.css" />
     <link rel="stylesheet" href="/static/css/font.css" />
     <!-- if title is not defined in the child template, use the default title -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
     <title>{% block title %}HTMX 💡{% endblock %}</title>
   </head>
   <body
     class="bg-gradient-to-b from-neutral-100 to-stone-100 flex flex-col items-center h-screen"
   >
     {% block content %}{% endblock %} {% block scripts %}{% endblock %} {% if
-    True %}
-    <nav id="nav" class="w-full bg-white shadow-md rounded-t-3xl p-2">
-      <div
-        class="flex items-center gap-8 px-4"
-        hx-boost="true"
-        hx-target="main"
-        hx-select="main"
-        hx-swap="outerHTML"
-      >
+    request.cookies.get("jwt") %}
+    <nav
+      id="nav"
+      class="w-full bg-white shadow-md rounded-t-3xl p-2"
+      hx-boost="true"
+    >
+      <div class="flex items-center gap-8 px-4">
         {% from "partials/kuaatata/nav_item.html" import nav_item %} {{
         nav_item(url_for("kuaatata_feed"), "Inicio", "fluent:home-32-regular",
         "fluent:home-32-filled") }} {{ nav_item(url_for("kuaatata_share"),
@@ -32,7 +31,6 @@
     {% endif %}
     <script src="https://unpkg.com/htmx.org@1.9.5"></script>
     <script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
     <script src="https://unpkg.com/htmx.org/dist/ext/response-targets.js"></script>
   </body>
 </html>

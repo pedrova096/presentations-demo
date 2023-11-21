@@ -2,7 +2,7 @@
 
 <main hx-ext="response-targets" class="w-full h-full flex flex-col -gap-2">
   <header
-    class="bg-gradient-to-l from-rose-500 to-yellow-500 text-white py-8 pl-8 flex justify-between overflow-hidden"
+    class="bg-gradient-to-l from-rose-500 to-yellow-500 text-white pt-8 pb-12 pl-8 flex justify-between overflow-hidden"
   >
     <div>
       <h1 class="font-semibold text-2xl">kuaatata</h1>
@@ -14,11 +14,11 @@
     <img
       src="{{ url_for('static', filename='img/group_food.svg') }}"
       alt="group food"
-      class="-mt-8"
+      class="absolute top-0 right-0 w-2/5"
     />
   </header>
   <form
-    class="relative flex flex-col bg-white w-full flex-1 p-8 gap-4 text-neutral-800 rounded-t-3xl -mt-12"
+    class="relative flex flex-col bg-white w-full flex-1 p-8 gap-4 text-neutral-800 rounded-t-3xl -mt-6"
     hx-post="/sign-up"
     hx-target-4*="#error"
   >

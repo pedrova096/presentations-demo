@@ -31,9 +31,9 @@ endblock %} {% block content %}
       class="w-full rounded-3xl bg-white p-2 flex gap-2 flex-wrap"
     ></ul>
 
-    <div class="col-gap-1 flex-row">
+    <div class="row-gap-1">
       <input
-        class="input flex-1"
+        class="input w-full flex-1"
         type="text"
         id="ingredient"
         name="ingredient"
@@ -58,6 +58,7 @@ endblock %} {% block content %}
         hx-post="/ingredients"
         hx-target="#ingredients-list"
         hx-swap="afterbegin"
+        hx-trigger="tap"
         hx-on::after-request="clearIngredientInputs()"
       >
         <iconify-icon

@@ -9,15 +9,15 @@
     <title>{% block title %}HTMX 💡{% endblock %}</title>
   </head>
   <body class="bg-slate-100 flex flex-col items-center justify-center h-screen">
-    <div class="flex flex-col gap-4 w-[20%]">
+    <div class="flex flex-col gap-4">
       <a
-        href="/part-one"
+        href={{ url_for("part_one") }}
         class="text-center block bg-blue-500 px-4 py-2 rounded font-bold text-white tracking-wide text-2xl active:bg-blue-500 hover:bg-blue-400/80"
       >
         Conceptos Básicos
       </a>
       <a
-        href="/k"
+        href={{ url_for("kuaatata_sign_up") }}
         class="block text-center bg-green-500 px-4 py-2 rounded font-bold text-white tracking-wide text-2xl active:bg-green-500 hover:bg-green-400/80"
       >
         Implementación
