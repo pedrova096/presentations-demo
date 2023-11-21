@@ -10,6 +10,7 @@ recipe_service = RecipeService()
 @app.route("/ingredients/search", methods=["GET"])
 def search_ingredients():
     ingredient_query_param = request.args.get("ingredient")
+    print("search_ingredients", ingredient_query_param)
 
     results = ingredients_service.search(ingredient_query_param)
 

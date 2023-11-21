@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class='h-full'>
 
   <head>
     <meta charset="UTF-8"/>
@@ -17,11 +17,11 @@
     .cookies
     .get("jwt")is defined %}
 
-  <body class="bg-gradient-to-b from-neutral-100 to-stone-100 flex flex-col items-center h-[92vh] {{ 'pb-14' if is_auth }}">
+  <body class="bg-gradient-to-b from-neutral-100 to-stone-50 flex flex-col items-center h-[100%]">
     {% block content %}{% endblock %}
     {% block scripts %}{% endblock %}
     {% if is_auth %}
-      <nav id="nav" class="w-full bg-white shadow-[0_-3px_6px_-5px_rgb(0_0_0_/_0.1)] rounded-t-3xl p-2 fixed bottom-0" hx-boost="true">
+      <nav id="nav" class="w-full bg-white shadow-[0_-3px_6px_-5px_rgb(0_0_0_/_0.1)] rounded-t-3xl p-2" hx-boost="true">
         <div class="flex items-center gap-8 px-4">
           {% from "partials/kuaatata/nav_item.html" import nav_item %}
           {{ nav_item(url_for("kuaatata_feed"), "Inicio", "fluent:home-32-regular",

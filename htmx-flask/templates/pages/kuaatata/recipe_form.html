@@ -17,11 +17,11 @@
       <ul id="ingredients-list" class="w-full rounded-3xl bg-white p-2 flex gap-2 flex-wrap"></ul>
 
       <div class="row-gap-1">
-        <input class="input w-full flex-1" type="text" id="ingredient" name="ingredient" placeholder="Tomate, Cebolla" autocomplete="off" hx-trigger="keyup changed delay:300ms" hx-get="/ingredients/search" hx-target="next #ingredients-autocomplete"/>
+        <input class="input w-full flex-1" type="text" id="ingredient" name="ingredient" placeholder="Tomate, Cebolla" autocomplete="off" hx-trigger="keyup changed delay:500ms" hx-get="/ingredients/search" hx-target="next #ingredients-autocomplete"/>
 
         <input class="input w-10 px-2" id="ingredient-amount" type="number" name="amount" placeholder="0" autocomplete="off"/>
 
-        <div class="rounded-lg bg-amber-500 text-white shadow-md shadow-amber-500/50 w-10 flex px-1" hx-post="/ingredients" hx-target="#ingredients-list" hx-swap="afterbegin" hx-trigger="tap" hx-on::after-request="clearIngredientInputs()">
+        <div class="rounded-lg bg-amber-500 text-white shadow-md shadow-amber-500/50 w-10 flex px-1" hx-post="/ingredients" hx-target="#ingredients-list" hx-swap="afterbegin" hx-on::after-request="clearIngredientInputs()">
           <iconify-icon icon="fluent:add-16-filled" height="1.5rem" class="m-auto"></iconify-icon>
         </div>
       </div>

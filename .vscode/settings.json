@@ -2,6 +2,12 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8"
   },
+  "[jinja-html]": {
+    "editor.defaultFormatter": "Glavin001.unibeautify-vscode"
+  },
   "html.format.templating": true,
-  "cSpell.words": ["kuaatata"]
+  "cSpell.words": ["kuaatata"],
+  "files.associations": {
+    "**/htmx-flask/**/*.html": "jinja-html"
+  }
 }

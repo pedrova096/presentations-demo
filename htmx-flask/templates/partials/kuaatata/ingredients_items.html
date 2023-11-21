@@ -1,17 +1,16 @@
-{% set emoji = ingredient.emoji %} {% set amount = ingredient.amount %} {% set
-name = ingredient.name %} {% set
-  red = ingredient.red %}
-<li
-  class="rounded-full bg-rose-50 py-1 px-2 font-semibold text-sm flex gap-1"
-  data-name="{{ name }}"
-  data-amount="{{ amount }}"
->
+{% set emoji = ingredient.emoji %}
+{% set amount = ingredient.amount %}
+{% set name = ingredient.name %}
+{% set red = ingredient.red %}
+
+<li class="rounded-full bg-rose-50 py-1 px-2 font-semibold text-sm flex gap-1" data-name="{{ name }}" data-amount="{{ amount }}">
   {% if emoji %}
-  <span>{{ emoji }}</span>
+    <span>{{ emoji }}</span>
   {% endif %}
-  <span class={{ 'text-rose-500' if red }}
-  > {{ name }} </span>
+  <span class="{{ 'text-rose-500' if red }}">
+    {{ name }}
+  </span>
   {% if amount %}
-  <span>x{{ amount }}</span>
+    <span>x{{ amount }}</span>
   {% endif %}
 </li>
