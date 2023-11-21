@@ -1,4 +1,4 @@
-{% extends 'basic_base.html' %} {% block content %}
+{% extends 'demo_base.html' %} {% block content %}
 <main class="p-24 gap-8 grid place-items-center flex-1 max-w-4xl w-full">
   <section
     class="border-2 border-slate-700 border-dashed rounded-lg aspect-square flex flex-col items-center overflow-hidden w-full"
@@ -11,7 +11,7 @@
         name="message"
         placeholder="Escribe un mensaje"
         autocomplete="off"
-        hx-trigger="keyup changed delay:500ms"
+        hx-trigger="keyup changed delay:1s"
         hx-post="/message/slow"
         hx-target="ul"
         hx-swap="afterbegin"
