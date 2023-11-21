@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/static/css/main.css" />
-    <link rel="stylesheet" href="/static/css/font.css" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/static/css/main.css"/>
+    <link rel="stylesheet" href="/static/css/font.css"/>
     <!-- if title is not defined in the child template, use the default title -->
     <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
-    <title>{% block title %}HTMX 💡{% endblock %}</title>
+    <title>
+      {% block title %}HTMX 💡{% endblock %}
+    </title>
   </head>
-  <body
-    class="bg-gradient-to-b from-neutral-100 to-stone-100 flex flex-col items-center h-screen"
-  >
-    {% block content %}{% endblock %} {% block scripts %}{% endblock %} {% if
-    request.cookies.get("jwt") %}
-    <nav
-      id="nav"
-      class="w-full bg-white shadow-md rounded-t-3xl p-2"
-      hx-boost="true"
-    >
-      <div class="flex items-center gap-8 px-4">
-        {% from "partials/kuaatata/nav_item.html" import nav_item %} {{
-        nav_item(url_for("kuaatata_feed"), "Inicio", "fluent:home-32-regular",
-        "fluent:home-32-filled") }} {{ nav_item(url_for("kuaatata_share"),
-        "Comparte", "fluent:add-32-regular", "fluent:add-32-filled") }} {{
-        nav_item(url_for("kuaatata_profile"), "Perfil",
+
+  {% set is_auth = request
+    .cookies
+    .get("jwt")is defined %}
+
+  <body class="bg-gradient-to-b from-neutral-100 to-stone-100 flex flex-col items-center h-[92vh] {{ 'pb-14' if is_auth }}">
+    {% block content %}{% endblock %}
+    {% block scripts %}{% endblock %}
+    {% if is_auth %}
+      <nav id="nav" class="w-full bg-white shadow-[0_-3px_6px_-5px_rgb(0_0_0_/_0.1)] rounded-t-3xl p-2 fixed bottom-0" hx-boost="true">
+        <div class="flex items-center gap-8 px-4">
+          {% from "partials/kuaatata/nav_item.html" import nav_item %}
+          {{ nav_item(url_for("kuaatata_feed"), "Inicio", "fluent:home-32-regular",
+        "fluent:home-32-filled") }}
+          {{ nav_item(url_for("kuaatata_share"),
+        "Comparte", "fluent:add-32-regular", "fluent:add-32-filled") }}
+          {{ nav_item(url_for("kuaatata_profile"), "Perfil",
         "fluent:person-32-regular", "fluent:person-32-filled") }}
-      </div>
-    </nav>
+        </div>
+      </nav>
     {% endif %}
     <script src="https://unpkg.com/htmx.org@1.9.5"></script>
     <script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
     <script src="https://unpkg.com/htmx.org/dist/ext/response-targets.js"></script>
   </body>
+
 </html>

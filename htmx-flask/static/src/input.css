@@ -31,6 +31,10 @@
     max-width: 400px;
   }
 
+  .full-real-height {
+    height: calc(100vh - calc(100vh - 100%));
+  }
+
   .fly-up-animation {
     --translate-x: -100%;
     animation: fly-up 3s ease-in-out forwards, wave 1s ease-in-out infinite;

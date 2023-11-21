@@ -1,61 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/static/css/main.css" />
-    <link rel="stylesheet" href="/static/css/font.css" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/static/css/main.css"/>
+    <link rel="stylesheet" href="/static/css/font.css"/>
     <!-- if title is not defined in the child template, use the default title -->
-    <title>{% block title %}HTMX 💡{% endblock %}</title>
+    <title>
+      {% block title %}HTMX 💡{% endblock %}
+    </title>
   </head>
+
   <body class="bg-slate-100 flex flex-col items-center h-screen">
     {% block content %}{% endblock %}
 
-    <footer
-      class="w-full gap-2 p-2 rounded-t-lg bg-slate-800 text-white text-center flex"
-    >
-      <a
-        href="{{ prev }}"
-        class="block flex-1 font-semibold text p-2 text-white hover:text-blue-200 hover:bg-slate-700 rounded"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-4 w-4 inline-block"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="4"
-            d="M15 19l-7-7 7-7"
-          />
+    <footer class="w-full gap-2 p-2 rounded-t-lg bg-slate-800 text-white text-center flex">
+      <a href="{{ prev }}" class="block flex-1 font-semibold text p-2 text-white hover:text-blue-200 hover:bg-slate-700 rounded">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M15 19l-7-7 7-7"/>
         </svg>
-        <span> Volver </span>
+        <span>
+          Volver
+        </span>
       </a>
       <div class="border-l border-white"></div>
-      <a
-        href="{{ next }}"
-        class="block flex-1 font-semibold text p-2 text-white hover:text-blue-200 hover:bg-slate-700 rounded"
-      >
-        <span> Siguiente </span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-4 w-4 inline-block"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="4"
-            d="M9 5l7 7-7 7"
-          />
+      <a href="{{ next }}" class="block flex-1 font-semibold text p-2 text-white hover:text-blue-200 hover:bg-slate-700 rounded">
+        <span>
+          Siguiente
+        </span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M9 5l7 7-7 7"/>
         </svg>
       </a>
     </footer>
     <script src="https://unpkg.com/htmx.org@1.9.4"></script>
   </body>
+
 </html>

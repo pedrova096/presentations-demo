@@ -1,45 +1,34 @@
-{% extends 'advance_base.html' %} {% block title %}Kuaatata | Comparte!{%
-endblock %} {% block content %}
-<main class="w-full flex-1 flex flex-col overflow-hidden relative">
-  {% include "/partials/kuaatata/header_title.html" %}
-  <div
-    class="relative flex flex-col w-full p-8 py-2 gap-4 text-neutral-800 flex-1"
-  >
-    <h2 class="text-lg font-bold">{{ recipe.title }}</h2>
+{% extends 'app_base.html' %}
+{% block title %}Kuaatata | Comparte!{% endblock %}
+{% block content %}
+  <main class="w-full flex-1 flex flex-col relative">
+    {% include "/partials/kuaatata/header_title.html" %}
+    <div class="relative flex flex-col w-full p-8 py-2 gap-4 text-neutral-800 flex-1">
+      <h2 class="text-lg font-bold">{{ recipe.title }}</h2>
     </h2>
 
-    <hr />
+    <hr/>
 
     <h3 class="text-sm font-bold text-center">Ingredientes</h3>
 
-
     <ul class="w-full rounded-3xl bg-white p-2 flex gap-2 flex-wrap">
-      {% for ingredient in recipe.ingredients %} {% include
-      "/partials/kuaatata/ingredients_items.html" %} {% endfor %}
+      {% for ingredient in recipe.ingredients %}
+        {% include
+        "/partials/kuaatata/ingredients_items.html" %}
+      {% endfor %}
     </ul>
 
-    <hr />
+    <hr/>
 
     <h3 class="text-sm font-bold text-center">Descripción</h3>
 
     <p class="text-sm text-justify">{{ recipe.description }}</p>
   </div>
 
-  <div id="reactions" hx-swap-oob="beforeend">
-  </div>
+  <div id="reactions"></div>
 
-
-  <button
-    class="w-10 aspect-square absolute bottom-4 right-8 rounded-full bg-rose-500 text-white shadow-lg shadow-rose-500/50 flex active:scale-95 transition-transform duration-300 ease-in-out"
-    hx-ext="ws"
-    ws-connect="/echo"
-    ws-send
-    >
-    <iconify-icon
-      icon="fluent:emoji-sparkle-32-regular"
-      height="1.5rem"
-      class='m-auto'
-      ></iconify-icon>
+  <button id='sender' class="w-10 aspect-square absolute bottom-4 right-8 rounded-full bg-rose-500 text-white shadow-lg shadow-rose-500/50 flex active:scale-95 transition-transform duration-300 ease-in-out" hx-ext="ws" ws-connect="/wave/{{ recipe.id }}" ws-send="ws-send">
+    <iconify-icon icon="fluent:emoji-sparkle-32-regular" height="1.5rem" class='m-auto'></iconify-icon>
   </button>
 
 </main>

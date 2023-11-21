@@ -1,24 +1,15 @@
-{% extends 'advance_base.html' %} {% block title %}Kuaatata | Cocina &
-Disfruta!{% endblock %} {% block content %}
-<main class="flex-1 w-full overflow-y-auto">
-  {% include "/partials/kuaatata/header_title.html" %}
-  <ul
-    id="recipe-feed"
-    hx-boost="true"
-    class="w-full flex flex-col p-8 pt-2 gap-8 overflow-y-scroll"
-  >
-    {% for recipe in recipes %} {% include "/partials/kuaatata/recipe_card.html"
-    %} {% endfor %} {% endblock %} {% block scripts %}
-    <li
-      id="skeleton"
-      hx-get="/k/feed?page_number={{ pagination.next_num }}"
-      hx-trigger="intersect once"
-      hx-target="#recipe-feed"
-      hx-swap="beforeend"
-      hx-select="li[id^=recipe-]"
-      hx-swap-oob="true"
-      class="w-full bg-neutral-200 h-8 rounded-lg skeleton mx-auto {{ 'hidden' if not pagination.has_next }}"
-    ></li>
-  </ul>
-</main>
+{% extends 'app_base.html' %}
+{% block title %}Kuaatata | Cocina & Disfruta!{% endblock %}
+{% block content %}
+  <main class="flex-1 w-full overflow-y-auto">
+    {% include "/partials/kuaatata/header_title.html" %}
+    <ul id="recipe-feed" hx-boost="true" class="w-full flex flex-col p-8 pt-2 gap-8">
+      {% for recipe in recipes %}
+        {% include "/partials/kuaatata/recipe_card.html" %}
+      {% endfor %}
+    {% endblock %}
+    {% block scripts %}
+      <li id="skeleton" hx-get="/k/feed?page_number={{ pagination.next_num }}" hx-trigger="intersect once" hx-target="#recipe-feed" hx-swap="beforeend" hx-select="li[id^=recipe-]" hx-swap-oob="true" class="w-full bg-neutral-200 h-8 rounded-lg skeleton mx-auto {{ 'hidden' if not pagination.has_next }}"></li>
+    </ul>
+  </main>
 {% endblock %}
