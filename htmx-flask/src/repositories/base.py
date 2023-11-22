@@ -25,7 +25,6 @@ class BaseRepository(object):
         db.session.commit()
 
     def update(self, entity):
-        db.session.add(entity)
         db.session.commit()
         return entity
 

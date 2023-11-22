@@ -25,6 +25,3 @@ class LikeService(object):
             self.dislike(recipe_id, user_id)
             return -1
         
-        return 0
-    
-

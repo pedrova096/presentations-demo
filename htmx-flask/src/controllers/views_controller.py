@@ -2,8 +2,10 @@ from flask import render_template, request, redirect, url_for
 from app import app as views
 from .auth_middleware import jwt_required
 from src.services.recipe_service import RecipeService
+from src.services.user_service import UserService
 
 recipe_service = RecipeService()
+user_service = UserService()
 
 def get_nav_page(index):
     pages = ["/part-one", "/part-two", "/part-three", "/part-four"]
@@ -48,7 +50,7 @@ def kuaatata_sign_up():
 @jwt_required
 def kuaatata_feed(uid):
     page_number = request.args.get("page_number", 1, type=int)
-    recipes,pagination = recipe_service.get_all_v2(user_id=uid, page_size=5, page_number=page_number)
+    recipes,pagination = recipe_service.get_all(user_id=uid, page_size=5, page_number=page_number)
     return render_template("pages/kuaatata/recipe_feed.html", recipes=recipes, pagination=pagination)
 
 @views.route("/k/share")
@@ -58,8 +60,11 @@ def kuaatata_share(_uid):
 
 @views.route("/k/profile")
 @jwt_required
-def kuaatata_profile(_uid):
-    return ""
+def kuaatata_profile(uid):
+    user = user_service.get_by_id(uid)
+    user.phone = int(user.phone) 
+    user_initial = user.name[0].upper()
+    return render_template("pages/kuaatata/profile.html", user=user, user_initial=user_initial)
 
 @views.route("/k/recipe/<int:recipe_id>")
 @jwt_required

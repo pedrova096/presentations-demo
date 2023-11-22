@@ -113,19 +113,6 @@ class RecipeService(object):
         return entity
 
     def get_all(self, user_id, page_number=1, page_size=10, ingredients_limit=3):
-        query = self.repository.get_query_with(LikeModel.id).outerjoin(
-            LikeModel, LikeModel.recipe_id == self.repository.model.id and LikeModel.user_id == user_id)
-
-        total_count = query.count()
-        entities = query.offset(
-            (page_number - 1) * page_size).limit(page_size).all()
-
-        entities = [self.map_feed(entity, bool(like_id), ingredients_limit=ingredients_limit)
-                    for entity, like_id in entities]
-
-        return entities, total_count
-
-    def get_all_v2(self, user_id, page_number=1, page_size=10, ingredients_limit=3):
         recipes, pagination = self.repository.get_with_like_by_uid(
             user_id,
             page_number,

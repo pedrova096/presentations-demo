@@ -20,3 +20,12 @@ class UserModel(BaseModel):
             phone=req_dict.get('phone'),
             password_hash=password_hash
         )
+
+    @staticmethod
+    def from_update_dict(req_dict, uid):
+        return UserModel(
+            id=uid,
+            name=req_dict.get('name'),
+            email=req_dict.get('email'),
+            phone=req_dict.get('phone')
+        )
