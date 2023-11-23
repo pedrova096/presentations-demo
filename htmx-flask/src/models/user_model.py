@@ -2,6 +2,7 @@ import bcrypt
 from sqlalchemy import Column, Integer, String, Numeric
 from .base import BaseModel
 
+
 class UserModel(BaseModel):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, nullable=False)
@@ -12,7 +13,8 @@ class UserModel(BaseModel):
 
     @staticmethod
     def from_dict(req_dict):
-        password_hash = bcrypt.hashpw(req_dict.get('password').encode('utf-8'), bcrypt.gensalt())
+        password_hash = bcrypt.hashpw(req_dict.get(
+            'password').encode('utf-8'), bcrypt.gensalt())
         password_hash = password_hash.decode('utf-8')
         return UserModel(
             name=req_dict.get('name'),
@@ -29,3 +31,9 @@ class UserModel(BaseModel):
             email=req_dict.get('email'),
             phone=req_dict.get('phone')
         )
+
+    def to_dict(self):
+        return {
+            # and value != None and no id
+            c.name: getattr(self, c.name) for c in self.__table__.columns if c.name != 'id' and getattr(self, c.name) != None
+        }

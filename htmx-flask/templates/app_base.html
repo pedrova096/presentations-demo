@@ -16,7 +16,7 @@
 
   {% set is_auth = request
     .cookies
-    .get("jwt")is defined %}
+    .get("jwt") != None %}
 
   <body class="bg-gradient-to-b from-neutral-100 to-stone-50 flex flex-col items-center h-[100%]">
     {% block content %}{% endblock %}

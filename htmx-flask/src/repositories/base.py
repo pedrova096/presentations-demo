@@ -11,7 +11,7 @@ class BaseRepository(object):
     def get(self, entity_id):
         entity = db.session.query(self.model).get(entity_id)
         return entity
-    
+
     def get_by(self, **kwargs):
         entity = db.session.query(self.model).filter_by(**kwargs).first()
         return entity
@@ -25,14 +25,19 @@ class BaseRepository(object):
         db.session.commit()
 
     def update(self, entity):
+        db.session.add(entity)
         db.session.commit()
         return entity
+
+    def update_by(self, values, **kwargs):
+        db.session.query(self.model).filter_by(**kwargs).update(values)
+        db.session.commit()
 
     def create(self, entity):
         db.session.add(entity)
         db.session.commit()
         return entity
-    
+
     def get_query_with(self, *args):
         try:
             return db.session.query(self.model, *args)
