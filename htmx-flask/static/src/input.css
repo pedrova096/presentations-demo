@@ -40,6 +40,11 @@
     animation: fly-up 3s ease-in-out forwards, wave 1s ease-in-out infinite;
   }
 
+  .slow-fade-in-animation {
+    animation: slow-fade-in 2s ease-in-out forwards;
+  }
+
+
   @keyframes shine {
     0% {
       background-position: -200px;
@@ -73,6 +78,15 @@
     }
     100% {
       transform: translateX(0);
+    }
+  }
+
+  @keyframes slow-fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 }

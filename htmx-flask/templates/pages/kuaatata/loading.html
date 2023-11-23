@@ -1,0 +1,10 @@
+{% extends 'app_base.html' %}
+{% block title %}
+  Kuaatata | Loading
+{% endblock %}
+{% block content %}
+  <main class="w-full h-full flex flex-col items-center justify-center px-8">
+    <span class='tracking-wide font-semibold text-transparent text-lg bg-clip-text bg-gradient-to-l from-rose-500 to-yellow-500 mb-2 slow-fade-in-animation'>CARGANDO</span>
+    <img src="{{ url_for('static', filename='img/rroll.gif') }}" alt="Loading" class="w-full rounded-lg" hx-trigger='load delay:2s' hx-get='{{ url_for("kuaatata_redirection") }}'>
+  </main>
+{% endblock %}
