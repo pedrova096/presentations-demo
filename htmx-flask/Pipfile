@@ -12,6 +12,7 @@ bcrypt = "*"
 python-jose = "*"
 fuzzywuzzy = "*"
 flask-sock = "*"
+gunicorn = "*"
 
 [dev-packages]
 
